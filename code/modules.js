@@ -27,5 +27,48 @@ function webrequire(name) {
     }
 }
 
-const require = webrequire;
-window.require = webrequire;
+const require = {
+    get current() {
+        return webrequire;
+    },
+    set current2(val) {
+        webrequire = val;
+    }
+};
+window.require = {
+    get current() {
+        return webrequire;
+    },
+    set current2(val) {
+        webrequire = val;
+    }
+};
+
+// DOESN'T WORK
+// class requireModule {
+//     id = null;
+//     exports = {
+//         get current() {
+//             return requireroutes[this.id];
+//         },
+//         set current2(value) {
+//             requireroutes[this.id] = value; // Just sneaking into this line :)
+//         }
+//     };
+// }
+
+// function preparedModule(mod, id=0) {
+//     mod.id = id;
+//     requireroutes[id] = null;
+//     return mod;
+// }
+
+// const module = preparedModule(new requireModule(), 0);
+// window.module = {
+//     get current() {
+//         return module;
+//     },
+//     set current2(val) {
+//         module = val;
+//     }
+// };
