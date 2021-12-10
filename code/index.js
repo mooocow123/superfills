@@ -1,7 +1,7 @@
 // we need require.js in this directory for this.
 
-const fs = webrequire('fs');
+const fs = webrequire('@node/fs');
 
-fs.promises.readFile('cow.txt', (err, res) => {
-    console.log(res);
+fs.promises.readFile('cow.txt', (stat, res) => {
+    console.log(stat, res);
 });

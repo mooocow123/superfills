@@ -8,6 +8,10 @@ class Fs1 {
           result = xmlhttp.responseText;
           func(null, result);
         }
+        else {
+            result = xmlhttp.status;
+            func(result, null);
+        }
         return result;
     }
     promises = {
@@ -21,7 +25,7 @@ class Fs1 {
                         func(null, xhr.response)
                         resolve(xhr.response)
                     } else {
-                        func({text: xhr.statusText, code: xhr.status}, null)
+                        func(xhr.status, null)
                         reject(status)
                     }
                 }
