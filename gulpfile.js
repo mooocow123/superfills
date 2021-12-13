@@ -6,7 +6,7 @@ const concat = require('gulp-concat');
 const tasks =  {
     bundle() {
         return src([
-            './code/**/!(index)*.js', // all files that end in .js EXCEPT index.js
+            './code/**/!(lancer)*.js', // all files that end in .js EXCEPT index.js
         ])
         .pipe(sourcemaps.init())
             .pipe(minify())

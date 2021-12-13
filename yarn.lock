@@ -3351,6 +3351,7 @@ __metadata:
     gulp-concat: ^2.6.1
     gulp-sourcemaps: ^3.0.0
     gulp-uglify: ^3.0.2
+    temmie: ^1.0.0
   languageName: unknown
   linkType: soft
 
@@ -3375,6 +3376,13 @@ __metadata:
     mkdirp: ^1.0.3
     yallist: ^4.0.0
   checksum: a04c07bb9e2d8f46776517d4618f2406fb977a74d914ad98b264fc3db0fe8224da5bec11e5f8902c5b9bcb8ace22d95fbe3c7b36b8593b7dfc8391a25898f32f
+  languageName: node
+  linkType: hard
+
+"temmie@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "temmie@npm:1.0.0"
+  checksum: 0ad0d46774134829e2ceadd35080830cfa99173512bd2340d28596e25014e49030f7de7c7e8fec115456c402e737a88d471d586d6a97d0c062ca8a90555ce0ca
   languageName: node
   linkType: hard
 
