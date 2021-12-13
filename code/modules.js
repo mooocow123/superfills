@@ -27,48 +27,23 @@ function webrequire(name) {
     }
 }
 
-const require = {
-    get current() {
-        return webrequire;
-    },
-    set current2(val) {
-        webrequire = val;
+const require = webrequire;
+
+// DOES WORK
+class requireModule {
+    id = null;
+    get exports() {
+        return requireroutes[this.id.toString()];
     }
-};
-window.require = {
-    get current() {
-        return webrequire;
-    },
-    set current2(val) {
-        webrequire = val;
+    set exports(val) {
+        requireroutes[this.id.toString()] = val;
     }
-};
+}
 
-// DOESN'T WORK
-// class requireModule {
-//     id = null;
-//     exports = {
-//         get current() {
-//             return requireroutes[this.id];
-//         },
-//         set current2(value) {
-//             requireroutes[this.id] = value; // Just sneaking into this line :)
-//         }
-//     };
-// }
+function preparedModule(mod, id=0) {
+    mod.id = id;
+    requireroutes[id.toString()] = 'Cow Mother';
+    return mod;
+}
 
-// function preparedModule(mod, id=0) {
-//     mod.id = id;
-//     requireroutes[id] = null;
-//     return mod;
-// }
-
-// const module = preparedModule(new requireModule(), 0);
-// window.module = {
-//     get current() {
-//         return module;
-//     },
-//     set current2(val) {
-//         module = val;
-//     }
-// };
+const module = preparedModule(new requireModule(), 0);
