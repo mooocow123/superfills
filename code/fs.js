@@ -1,18 +1,18 @@
 class Fs1 {
     readFileSync(name, func=(stat, res) => {}) {
-        let result = null;
-        const xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", name, false);
-        xmlhttp.send();
+        let result = null
+        const xmlhttp = new XMLHttpRequest()
+        xmlhttp.open("GET", name, false)
+        xmlhttp.send()
         if (xmlhttp.status==200 || xmlhttp.status==304) {
-          result = xmlhttp.responseText;
-          func(null, result);
+          result = xmlhttp.responseText
+          func(null, result)
         }
         else {
-            result = xmlhttp.status;
-            func(result, null);
+            result = xmlhttp.status
+            func(result, null)
         }
-        return result;
+        return result
     }
     promises = {
         readFile(name, func=(stat, res) => {}) {
@@ -35,7 +35,7 @@ class Fs1 {
     }
     constructor() {
         for (let key in this.promises) {
-            eval('this.' + key + ' = this.promises["' + key + '"];');
+            eval('this.' + key + ' = this.promises["' + key + '"]')
         }
     }
 }
